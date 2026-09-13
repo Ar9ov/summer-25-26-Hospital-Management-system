@@ -1,0 +1,919 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.signup-container {
+    background: white;
+    width: 350px;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+h1 {
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    box-sizing: border-box;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+#message {
+text-align: center;
+margin-top: 15px;
+}
+
+/* =========================================
+ *  ADMIN DASHBOARD
+ *  ========================================= */
+
+.admin-layout {
+    display: flex;
+    min-height: 100vh;
+    background: #f4f7fb;
+}
+
+
+/* =========================================
+ *  SIDEBAR
+ *  ========================================= */
+
+.sidebar {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 240px;
+    height: 100vh;
+
+    padding: 28px 18px;
+
+    background: #111827;
+
+    color: white;
+}
+
+
+.sidebar h2 {
+    margin: 0;
+
+    font-size: 23px;
+    font-weight: 600;
+}
+
+
+.admin-label {
+    margin-top: 4px;
+    margin-bottom: 35px;
+
+    color: #9ca3af;
+
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+
+.sidebar a {
+    display: block;
+
+    padding: 12px 15px;
+    margin-bottom: 6px;
+
+    color: #d1d5db;
+
+    text-decoration: none;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+
+    transition: 0.2s;
+}
+
+
+.sidebar a:hover {
+    background: #1f2937;
+
+    color: white;
+}
+
+
+/* Active dashboard */
+
+.sidebar a.active {
+    background: #2563eb;
+    color: white;
+}
+
+/* Logout */
+
+.logout-link {
+    position: absolute;
+
+    bottom: 80px;
+    left: 18px;
+    right: 18px;
+
+    color: #fca5a5 !important;
+}
+
+
+/* =========================================
+ *  MAIN CONTENT
+ *  ========================================= */
+
+.main-content {
+    margin-left: 240px;
+
+    width: calc(100% - 240px);
+
+    padding: 35px 40px;
+}
+
+
+/* =========================================
+ *  TOP HEADER
+ *  ========================================= */
+
+.top-section {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 35px;
+}
+
+
+.top-section h1 {
+    margin: 0;
+
+    font-size: 28px;
+
+    font-weight: 600;
+
+    color: #111827;
+}
+
+
+.top-section p {
+    margin-top: 5px;
+
+    color: #6b7280;
+
+    font-size: 14px;
+}
+
+
+.admin-user {
+    padding: 9px 18px;
+
+    background: white;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 20px;
+
+    font-size: 13px;
+
+    color: #374151;
+}
+
+
+/* =========================================
+ *  DASHBOARD CARDS
+ *  ========================================= */
+
+.dashboard-cards {
+    display: grid;
+
+    grid-template-columns:
+    repeat(5, 1fr);
+
+    gap: 18px;
+
+    margin-bottom: 30px;
+}
+
+
+.dashboard-card {
+    background: white;
+
+    padding: 22px;
+
+    border-radius: 12px;
+
+    border: 1px solid #e5e7eb;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+}
+
+
+.dashboard-card h3 {
+    margin: 0;
+
+    font-size: 13px;
+
+    font-weight: 500;
+
+    color: #6b7280;
+}
+
+
+.dashboard-card p {
+    margin: 10px 0 0;
+
+    font-size: 27px;
+
+    font-weight: 600;
+
+    color: #111827;
+}
+
+
+/* =========================================
+ *  SECTIONS
+ *  ========================================= */
+
+.dashboard-section {
+    background: white;
+
+    padding: 25px;
+
+    margin-bottom: 25px;
+
+    border-radius: 12px;
+
+    border: 1px solid #e5e7eb;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+}
+
+
+.section-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 20px;
+}
+
+
+.section-header h2 {
+    margin: 0;
+
+    font-size: 18px;
+
+    font-weight: 600;
+
+    color: #111827;
+}
+
+
+.section-header a {
+    color: #2563eb;
+
+    text-decoration: none;
+
+    font-size: 13px;
+}
+
+
+/* =========================================
+ *  REVIEWS
+ *  ========================================= */
+
+.review-box {
+    padding: 16px 0;
+
+    border-bottom: 1px solid #eef0f3;
+}
+
+
+.review-box:last-child {
+    border-bottom: none;
+}
+
+
+.review-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+
+.review-header strong {
+    font-size: 14px;
+}
+
+
+.review-header span {
+    font-size: 13px;
+}
+
+
+.review-box p {
+    margin: 7px 0;
+
+    color: #4b5563;
+
+    font-size: 13px;
+}
+
+
+.review-box small {
+    color: #9ca3af;
+
+    font-size: 11px;
+}
+
+
+/* =========================================
+ *  BUTTON
+ *  ========================================= */
+
+.add-doctor-button {
+    padding: 11px 18px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background: #2563eb;
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+.add-doctor-button:hover {
+    background: #1d4ed8;
+}
+
+
+/* =========================================
+ *  RESPONSIVE
+ *  ========================================= */
+
+@media (max-width: 1100px) {
+
+    .dashboard-cards {
+        grid-template-columns:
+        repeat(3, 1fr);
+    }
+
+}
+
+
+@media (max-width: 800px) {
+
+    .sidebar {
+        width: 200px;
+    }
+
+    .main-content {
+        margin-left: 200px;
+
+        width: calc(100% - 200px);
+
+        padding: 25px;
+    }
+
+    .dashboard-cards {
+        grid-template-columns:
+        repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .sidebar {
+        position: relative;
+
+        width: 100%;
+
+        height: auto;
+    }
+
+    .admin-layout {
+        display: block;
+    }
+
+    .main-content {
+        margin-left: 0;
+
+        width: 100%;
+    }
+
+    .dashboard-cards {
+        grid-template-columns: 1fr;
+    }
+
+}
+/* =========================================
+ *  DOCTOR FORM
+ *  ========================================= */
+
+#doctorForm {
+max-width: 600px;
+}
+
+#doctorForm label {
+display: block;
+
+margin-top: 15px;
+margin-bottom: 6px;
+
+font-size: 13px;
+
+color: #374151;
+}
+
+#doctorForm input {
+width: 100%;
+
+padding: 11px 12px;
+
+border: 1px solid #d1d5db;
+
+border-radius: 7px;
+
+font-family: inherit;
+
+font-size: 13px;
+}
+
+#doctorForm input:focus {
+outline: none;
+
+border-color: #2563eb;
+}
+
+#doctorMessage {
+margin-top: 15px;
+
+font-size: 13px;
+}
+/* =========================================
+ *  DOCTOR TABLE
+ *  ========================================= */
+
+.doctor-list-section {
+    margin-top: 30px;
+}
+
+.doctor-list-section h2 {
+    margin-bottom: 18px;
+}
+
+.table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+#doctorTable {
+width: 100%;
+border-collapse: collapse;
+}
+
+#doctorTable th,
+#doctorTable td {
+padding: 13px 12px;
+text-align: left;
+border-bottom: 1px solid #e5e7eb;
+font-size: 13px;
+}
+
+#doctorTable th {
+color: #6b7280;
+font-weight: 500;
+background: #f9fafb;
+}
+
+#doctorTable td {
+color: #374151;
+}
+
+.status-active {
+    color: #15803d;
+    font-weight: 600;
+}
+
+.status-inactive {
+    color: #dc2626;
+    font-weight: 600;
+}
+.remove-doctor-button {
+    padding: 7px 12px;
+
+    border: none;
+
+    border-radius: 6px;
+
+    background: #fee2e2;
+
+    color: #b91c1c;
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+    cursor: pointer;
+}
+
+.remove-doctor-button:hover {
+    background: #fecaca;
+}
+/* =========================================
+ *  REVIEW TABLE
+ *  ========================================= */
+
+#reviewTable {
+width: 100%;
+border-collapse: collapse;
+}
+
+#reviewTable th,
+#reviewTable td {
+padding: 13px 12px;
+text-align: left;
+border-bottom: 1px solid #e5e7eb;
+font-size: 13px;
+}
+
+#reviewTable th {
+color: #6b7280;
+font-weight: 500;
+background: #f9fafb;
+}
+
+#reviewTable td {
+color: #374151;
+}
+
+
+
+
+/* =========================================
+ *  REVENUE MANAGEMENT
+ *  ========================================= */
+
+#revenueForm,
+#editRevenueForm {
+max-width: 600px;
+}
+
+
+#revenueForm label,
+#editRevenueForm label {
+display: block;
+
+margin-top: 15px;
+margin-bottom: 6px;
+
+font-size: 13px;
+
+color: #374151;
+}
+
+
+#revenueForm input,
+#editRevenueForm input {
+width: 100%;
+
+padding: 11px 12px;
+
+border: 1px solid #d1d5db;
+
+border-radius: 7px;
+
+font-family: inherit;
+
+font-size: 13px;
+}
+
+
+#revenueForm input:focus,
+#editRevenueForm input:focus {
+outline: none;
+
+border-color: #2563eb;
+}
+
+
+#revenueMessage,
+#editRevenueMessage {
+margin-top: 15px;
+
+font-size: 13px;
+}
+
+
+.edit-revenue-button,
+.delete-revenue-button {
+    padding: 7px 11px;
+
+    border: none;
+
+    border-radius: 6px;
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+    cursor: pointer;
+
+    margin-right: 5px;
+}
+
+
+.edit-revenue-button {
+    background: #dbeafe;
+
+    color: #1d4ed8;
+}
+
+
+.edit-revenue-button:hover {
+    background: #bfdbfe;
+}
+
+
+.delete-revenue-button {
+    background: #fee2e2;
+
+    color: #b91c1c;
+}
+
+
+.delete-revenue-button:hover {
+    background: #fecaca;
+}
+/* =========================================
+ *  REVENUE TABLE
+ *  ========================================= */
+
+#revenueTable {
+width: 100%;
+border-collapse: collapse;
+}
+
+#revenueTable th,
+#revenueTable td {
+padding: 13px 12px;
+
+text-align: left;
+
+border-bottom: 1px solid #e5e7eb;
+
+font-size: 13px;
+}
+
+#revenueTable th {
+color: #6b7280;
+
+font-weight: 500;
+
+background: #f9fafb;
+}
+
+#revenueTable td {
+color: #374151;
+}
+
+
+/* =========================================
+ *  REVENUE ACTION BUTTONS
+ *  ========================================= */
+
+.edit-revenue-button,
+.delete-revenue-button {
+    padding: 7px 11px;
+
+    border: none;
+
+    border-radius: 6px;
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+    cursor: pointer;
+
+    margin-right: 5px;
+}
+
+
+.edit-revenue-button {
+    background: #dbeafe;
+
+    color: #1d4ed8;
+}
+
+
+.edit-revenue-button:hover {
+    background: #bfdbfe;
+}
+
+
+.delete-revenue-button {
+    background: #fee2e2;
+
+    color: #b91c1c;
+}
+
+
+.delete-revenue-button:hover {
+    background: #fecaca;
+}
+
+/* =========================================
+ *  REVIEW MANAGEMENT
+ *  ========================================= */
+
+#reviewSearch {
+width: 250px;
+
+padding: 10px 12px;
+
+border: 1px solid #d1d5db;
+
+border-radius: 7px;
+
+font-family: inherit;
+
+font-size: 13px;
+}
+
+
+#reviewSearch:focus {
+outline: none;
+
+border-color: #2563eb;
+}
+
+
+#reviewTable {
+width: 100%;
+
+border-collapse: collapse;
+}
+
+
+#reviewTable th,
+#reviewTable td {
+
+padding: 13px 12px;
+
+text-align: left;
+
+border-bottom: 1px solid #e5e7eb;
+
+font-size: 13px;
+
+}
+
+
+#reviewTable th {
+
+color: #6b7280;
+
+font-weight: 500;
+
+background: #f9fafb;
+
+}
+
+
+#reviewTable td {
+
+color: #374151;
+
+}
+
+
+.edit-review-button,
+.delete-review-button {
+
+    padding: 7px 11px;
+
+    border: none;
+
+    border-radius: 6px;
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+    cursor: pointer;
+
+    margin-right: 5px;
+
+}
+
+
+.edit-review-button {
+
+    background: #dbeafe;
+
+    color: #1d4ed8;
+
+}
+
+
+.edit-review-button:hover {
+
+    background: #bfdbfe;
+
+}
+
+
+.delete-review-button {
+
+    background: #fee2e2;
+
+    color: #b91c1c;
+
+}
+
+
+.delete-review-button:hover {
+
+    background: #fecaca;
+
+}
+
+
+#editReviewForm {
+
+max-width: 600px;
+
+}
+
+
+#editReviewForm select,
+#editReviewForm textarea {
+
+width: 100%;
+
+padding: 11px 12px;
+
+margin-top: 5px;
+
+border: 1px solid #d1d5db;
+
+border-radius: 7px;
+
+font-family: inherit;
+
+font-size: 13px;
+
+}
+
+
+#editReviewForm select:focus,
+#editReviewForm textarea:focus {
+
+outline: none;
+
+border-color: #2563eb;
+
+}
+
+
+
+
+
