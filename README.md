@@ -1,3 +1,181 @@
+#Patient Portal Module (Member 1)
+This is Member 1's part of the group web application: the Patient Portal, covering the patient-side features from the Hospital Management System project.
+Features Implemented
+1. Patient Registration & Login
+Patients can create an account and securely log in to access the system.
+Features include:
+•	Patient Registration
+•	Patient Login
+•	Session-based Authentication
+•	Logout Functionality
+•	Form Validation (Client-side and Server-side)
+
+2. Doctor Search
+Patients can search and view available doctors before booking appointments.
+Features include:
+•	View Doctor List
+•	Search Doctors by Name
+•	Search Doctors by Department
+•	Check Doctor Availability Status
+
+3. Appointment Booking
+Patients can schedule appointments with available doctors.
+Features include:
+•	Select Doctor
+•	Choose Appointment Date
+•	Submit Appointment Request
+•	Appointment Status Tracking
+
+4. Appointment History
+Patients can view their previously booked appointments.
+Information displayed:
+•	Doctor Name
+•	Appointment Date
+•	Appointment Status
+
+Setup on XAMPP
+Step 1: Copy the Module
+Copy the following folder into:
+C:\xampp\htdocs</span>
+Example:
+C:\xampp\htdocs\hospital_project
+
+Step 2: Start XAMPP
+Start:
+Apache
+MySQL
+from the XAMPP Control Panel.
+
+Step 3: Create Database
+Open:
+http://localhost/phpmyadmin
+Create a database named:
+hospital_db
+
+Step 4: Import Database
+Import the provided:
+hospital_db.sql
+This creates:
+patients
+doctors
+appointments
+tables and inserts sample doctor data.
+
+Step 5: Configure Database Connection
+File:
+model/db.php
+Configuration:
+localhost
+root
+(blank password)
+hospital_db
+
+Step 6: Run the Module
+Registration Page:
+http://localhost/hospital_project/controller/register.php
+Login Page:
+http://localhost/hospital_project/controller/login.php
+Dashboard:
+http://localhost/hospital_project/controller/dashboard.php
+Appointment Page:
+http://localhost/hospital_project/controller/appointment.php
+
+Folder Structure (MVC)
+hospital_project
+
+├── assets
+│ └── style.css
+
+├── model
+│ ├── db.php
+│ ├── PatientModel.php
+│ ├── DoctorModel.php
+│ └── AppointmentModel.php
+
+├── controller
+│ ├── register.php
+│ ├── login.php
+│ ├── dashboard.php
+│ ├── appointment.php
+│ └── logout.php
+
+├── view
+│ ├── register.php
+│ ├── login.php
+│ ├── dashboard.php
+│ └── appointment.php
+
+└── hospital_db.sql
+
+How This Maps to the Grading Criteria
+Requirement	Where it lives
+MVC Architecture	Separate model/, controller/, and view/ folders
+MySQL Database	model/db.php
+Prepared Statements	PatientModel.php and AppointmentModel.php
+Authentication	login.php, logout.php, PHP Session
+Session Management	Uses $_SESSION["patient_id"] after login
+Form Validation	Registration and Login forms
+Doctor Search	dashboard.php + DoctorModel.php
+Appointment Booking	appointment.php + AppointmentModel.php
+UI (HTML/CSS)	assets/style.css and view files
+CRUD Operations	Registration (Create), Doctor View (Read), Appointment Booking (Create)
+Basic Web Security	Prepared Statements and Session-based login
+
+Technology Stack
+Frontend
+•	HTML
+•	CSS
+•	JavaScript Validation
+Backend
+•	PHP (Procedural)
+Database
+•	MySQL
+Architecture
+•	MVC (Model-View-Controller)
+Environment
+•	XAMPP
+
+Assumptions for Team Integration
+Doctor Panel (Member 2)
+Doctor entries are stored in:
+doctors
+table.
+Doctor panel should update:
+availability
+status when needed.
+
+Reception & Billing (Member 3)
+Appointments created by patients appear in:
+appointments
+``
+table.
+Receptionist can:
+•	Approve Appointment
+•	Cancel Appointment
+•	Generate Bills
+
+Admin Panel (Member 4)
+Admin can:
+•	Add Doctors
+•	Update Doctors
+•	Delete Doctors
+•	Manage System Data
+using the same shared database.
+
+Merging with Team Project
+Before final submission, all members should agree on:
+•	One shared database: 
+hospital_db
+•	One database connection file: 
+model/db.php
+•	One session-based authentication system
+•	Consistent table names:
+patients
+doctors
+appointments
+The Patient Portal module can then be merged into the main Hospital Management System with minimal code changes.
+
+
 # Doctor Panel Module
 
 This is **Member 2's** part of the group web app: the **Doctor Panel**, covering
