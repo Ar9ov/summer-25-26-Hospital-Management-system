@@ -224,16 +224,37 @@ that a doctor creates, not tied to a patient's login account. That's
 intentional (matches the CRUD+Search requirement on the doctor's own
 dashboard) but flag it with your team if they expect doctors to look up
 patients by their actual login account instead.
+
 Folder structure (MVC)
-```
-config/       -> db.php (mysqli connection)
-models/       -> one file per entity, procedural mysqli, prepared statements
-controllers/  -> request handling + validation calls, no HTML
-views/        -> all HTML output, split into auth/, doctor/, partials/
-ajax/         -> JSON endpoints used by the live search
-public/       -> css/js served to the browser
-index.php     -> front controller / router (?page=...)
-```
+hospital_project/
+├── assets/
+│   └── style.css[cite: 1]
+├── model/
+│   ├── db.php[cite: 1]
+│   ├── PatientModel.php[cite: 1]
+│   ├── HistoryModel.php[cite: 1]
+│   ├── LeaveModel.php[cite: 1]
+│   ├── PrescriptionModel.php[cite: 1]
+│   └── UserModel.php[cite: 1]
+├── controller/
+│   ├── AuthController.php[cite: 1]
+│   ├── HistoryController.php[cite: 1]
+│   ├── LeaveController.php[cite: 1]
+│   ├── PatientController.php[cite: 1]
+│   └── PrescriptionController.php[cite: 1]
+├── view/
+│   ├── login.php[cite: 1]
+│   ├── signup.php[cite: 1]
+│   ├── dashboard.php[cite: 1]
+│   ├── emergency_leave.php[cite: 1]
+│   ├── patients_list.php[cite: 1]
+│   ├── patient_form.php[cite: 1]
+│   ├── patient_history.php[cite: 1]
+│   ├── prescriptions_list.php[cite: 1]
+│   ├── prescription_view.php[cite: 1]
+│   └── prescription_writer.php[cite: 1]
+└── hospital_db.sql[cite: 1]
+
 How this maps to the grading criteria
 Requirement	Where it lives
 MVC	models/, controllers/, views/ are cleanly separated; index.php is the only router
