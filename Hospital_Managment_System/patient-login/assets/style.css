@@ -1,0 +1,304 @@
+/* ============================================================
+   Hospital Patient System — Clean & Clinical theme
+   ============================================================ */
+
+:root{
+    --bg:            #eef1f5;
+    --card-bg:       #ffffff;
+    --border:        #e1e5eb;
+    --text:          #1c2230;
+    --label:         #5b6472;
+    --input-bg:      #eef3fc;
+    --input-border:  #cdd9ef;
+    --input-focus:   #6c8eef;
+    --btn-bg:        #e8eaee;
+    --btn-bg-hover:  #dcdfe6;
+    --btn-text:      #333a45;
+    --accent:        #5b53e8;
+    --accent-hover:  #4640c9;
+    --table-head-bg: #eef3fc;
+    --success:       #1f9d55;
+    --pending:       #b8860b;
+    --confirmed:     #1f6feb;
+    --shadow:        0 1px 3px rgba(20, 25, 40, 0.06), 0 8px 24px rgba(20, 25, 40, 0.06);
+}
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+}
+
+a{
+    color: var(--accent);
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: underline;
+    color: var(--accent-hover);
+}
+
+.container{
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 48px 0;
+}
+
+/* Narrow layout for auth screens (login/register) */
+.container.auth{
+    max-width: 400px;
+    padding-top: 72px;
+}
+
+.card{
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    padding: 32px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+}
+
+.card + .card{
+    margin-top: 24px;
+}
+
+h2{
+    color: var(--text);
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0 0 24px 0;
+    text-align: center;
+}
+
+.auth h2{
+    text-align: center;
+}
+
+label{
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--label);
+    margin-bottom: 6px;
+}
+
+.field{
+    margin-bottom: 18px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+select{
+    width: 100%;
+    padding: 11px 12px;
+    margin-bottom: 0;
+    background: var(--input-bg);
+    border: 1px solid var(--input-border);
+    border-radius: 6px;
+    font-size: 14px;
+    color: var(--text);
+    font-family: inherit;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+input:focus,
+select:focus{
+    outline: none;
+    border-color: var(--input-focus);
+    box-shadow: 0 0 0 3px rgba(108, 142, 239, 0.18);
+}
+
+input::placeholder{
+    color: #9aa5b5;
+}
+
+input[type="submit"],
+button.btn{
+    width: 100%;
+    padding: 12px;
+    margin-top: 4px;
+    background: var(--btn-bg);
+    color: var(--btn-text);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+input[type="submit"]:hover,
+button.btn:hover{
+    background: var(--btn-bg-hover);
+}
+
+.form-footer{
+    margin-top: 16px;
+    font-size: 13px;
+    color: var(--label);
+    text-align: left;
+}
+
+.field-error{
+    color: #c23b34;
+    font-size: 12px;
+    margin-top: 6px;
+    margin-bottom: 0;
+}
+
+input.input-error,
+select.input-error{
+    border-color: #e0837c;
+    background: #fdf2f1;
+}
+
+.message{
+    margin-top: 16px;
+    padding: 10px 12px;
+    background: #eaf7ee;
+    border: 1px solid #cdeed9;
+    color: var(--success);
+    border-radius: 6px;
+    font-size: 13px;
+}
+
+/* ---------------- App shell (dashboard / appointment) ---------------- */
+
+.topbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+
+.topbar h1{
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0;
+    color: var(--text);
+}
+
+.topbar-actions{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.btn-link{
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--label);
+    border: 1px solid var(--border);
+    background: var(--card-bg);
+    padding: 8px 14px;
+    border-radius: 6px;
+}
+.btn-link:hover{
+    text-decoration: none;
+    background: var(--bg);
+    color: var(--text);
+}
+
+.card-title{
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+    text-align: left;
+    margin: 0 0 16px 0;
+}
+
+/* ---------------- Tables ---------------- */
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+th{
+    background: var(--table-head-bg);
+    color: var(--text);
+    font-weight: 600;
+    text-align: left;
+}
+
+th, td{
+    border-bottom: 1px solid var(--border);
+    padding: 12px;
+}
+
+tr:last-child td{
+    border-bottom: none;
+}
+
+.status{
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+}
+.status.pending{ background:#fdf3dc; color:var(--pending); }
+.status.confirmed{ background:#e5edff; color:var(--confirmed); }
+.status.completed{ background:#e4f7ea; color:var(--success); }
+.status.available{ background:#e4f7ea; color:var(--success); }
+.status.unavailable{ background:#fdeceb; color:#c23b34; }
+.status.on-leave{ background:#fdf3dc; color:var(--pending); }
+
+.inline-form{
+    display: flex;
+    gap: 12px;
+    align-items: flex-end;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+}
+.inline-form .field{
+    flex: 1;
+    min-width: 160px;
+    margin-bottom: 0;
+}
+.inline-form input[type="submit"]{
+    width: auto;
+    padding: 11px 20px;
+    margin-top: 0;
+}
+
+hr.divider{
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 28px 0;
+}
+
+/* ---------------- Responsive ---------------- */
+
+@media (max-width: 600px){
+    .container{
+        width: 92%;
+        padding-top: 32px;
+    }
+    .card{
+        padding: 22px;
+    }
+    .topbar{
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+    .inline-form{
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .inline-form input[type="submit"]{
+        width: 100%;
+    }
+}
