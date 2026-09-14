@@ -176,54 +176,43 @@ appointments
 The Patient Portal module can then be merged into the main Hospital Management System with minimal code changes.
 
 
-Doctor Panel Module
-This is Member 2's part of the group web app: the Doctor Panel, covering
-the 3 features from the group's assignment sheet:
-Emergency Leave — doctor submits/cancels leave requests.
-Prescription Writer — pick a patient, type a diagnosis, add unlimited
-medicine rows (name, dosage, frequency, duration), save & print.
-Patient History — a searchable, chronological timeline per patient
-built from past prescriptions + free-form visit notes.
-Plus the required Create / Read / Update / Delete / Search actions on the
-doctor's own dashboard, implemented on the Patients entity (add, edit,
-delete, and live-search patient records).
-Setup on XAMPP
-This module now points at the shared `hospital_management` database
-owned by the Admin panel (Member 4) — not a standalone database. Use
-`hospital_management_combined.sql` (teammate's dump + this module's tables
-appended), not the older `database/schema.sql`, which is now just a
-reference for the old standalone version.
-Copy the `doctor-panel/` folder into the same `htdocs/` project folder
-your teammates are using (so it shares one codebase root eventually —
-see "Merging with your team" below).
-Start Apache + MySQL in the XAMPP control panel.
-Open `http://localhost/phpmyadmin` → Import tab → choose
-`hospital_management_combined.sql` → Go. This creates `users`, `doctors`,
-`revenue`, `reviews` (Admin's tables, with his existing test data) plus
-`patients`, `doctor_leaves`, `prescriptions`, `prescription_medicines`,
-`patient_visit_notes` (this module's tables).
-`config/db.php` is already set to `DB_NAME = 'hospital_management'`.
-Visit `http://localhost/.../doctor-panel/index.php?page=signup` and
-create a fresh doctor account through the form (writes into both
-`users` and `doctors` correctly) — don't try to log in with the
-existing seeded doctor accounts, since you don't know their plaintext
-passwords.
-Log in and you should land on the doctor dashboard.
-Known integration gaps with the Admin panel's schema
-The Admin's `doctors.status` column (`active`/`inactive`) looks like an
-approval flag, but this module's login only checks `users.status`. If
-Admin wants to be able to deactivate a doctor from their panel, ask them
-to flip `users.status` too (or tell me and I'll wire the login check to
-also look at `doctors.status`).
-`doctors.specialization` is `NOT NULL` in the shared schema — the signup
-form defaults it to `"General"` if left blank.
-There's no `patients` table in the Admin's dump — "patients" there are
-just `users` with `role = 'patient'`. This module's `patients` table is
-a separate medical record entity (age, gender, blood group, etc.)
-that a doctor creates, not tied to a patient's login account. That's
-intentional (matches the CRUD+Search requirement on the doctor's own
-dashboard) but flag it with your team if they expect doctors to look up
-patients by their actual login account instead.
+Doctor Panel Module (Member 2 Guide)
+Core Features
+Emergency Leave: Submit and cancel leave requests.
+
+Prescription Writer: Select a patient, enter a diagnosis, add unlimited medicine rows (name, dosage, frequency, duration), and save/print.
+
+Patient History: Searchable, chronological timeline per patient built from past prescriptions and free-form visit notes.
+
+Patient Management (CRUD + Search): Add, edit, delete, and live-search patient records directly from the doctor's dashboard.
+
+XAMPP & Database Setup
+Directory Placement: Copy the doctor-panel/ folder into your shared htdocs/ project folder.
+
+Database Configuration: This module uses the shared hospital_management database (Admin's database). config/db.php is already configured with DB_NAME = 'hospital_management'.
+
+Database Import:
+
+Start Apache and MySQL in the XAMPP control panel.
+
+Open http://localhost/phpmyadmin.
+
+Go to the Import tab.
+
+Choose hospital_management_combined.sql (use this combined file, not the older schema.sql reference file) and click Go.
+
+Note: This imports Admin's tables (users, doctors, revenue, reviews) and this module's tables (patients, doctor_leaves, prescriptions, prescription_medicines, patient_visit_notes).
+
+Account Creation & Login:
+
+Open http://localhost/.../doctor-panel/index.php?page=signup and create a fresh doctor account through the form. (Do not use seeded doctor accounts since plaintext passwords are unknown).
+
+Log in with the newly created account to access the doctor dashboard. (Note: The signup form defaults doctors.specialization to "General" if left blank).
+
+Known Integration Notes & Gaps
+Doctor Status: The Admin's doctors.status column (active/inactive) acts as an approval flag, but this module's login currently checks users.status. Coordinate with the Admin panel to sync status changes if needed.
+
+Patients Entity: The patients table in this module is a separate medical record entity managed by the doctor (tracking age, gender, blood group, etc.) and is not tied directly to user login accounts.
 
 Folder structure (MVC)
 hospital_project/
